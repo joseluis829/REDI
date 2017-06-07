@@ -59,8 +59,10 @@ wkhomeApp.service('globalData', function () {
     this.urltofindinACADEMICS = 'https://academic.microsoft.com/#/search?iq=@{0}@&q={1}&filters=&from=0&sort=0';
 });
 
-wkhomeApp.config(['$routeProvider',
-    function ($routeProvider) {
+wkhomeApp.config(['$routeProvider', '$locationProvider', 
+    function ($routeProvider, $locationProvider) {
+
+        $locationProvider.hashPrefix('');
 
         $routeProvider.
                 when('/:lang/', {
@@ -124,6 +126,9 @@ wkhomeApp.config(['$routeProvider',
                 }).
                 when('/:lang/info/sources', {
                     templateUrl: '/wkhome/partials/sources.html'
+                }).
+                when('/:lang/info/whatsNew', {
+                    templateUrl: '/wkhome/partials/whatsNew.html'
                 }).
 //                .
                 /*when('/phones/:phoneId', {
